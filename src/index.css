@@ -1,0 +1,212 @@
+:root {
+  /* Premium Light Theme */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --accent-primary: #4f46e5;
+  --accent-secondary: #7c3aed;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme='dark'] {
+  /* Premium Dark Theme */
+  --bg-primary: #030712;
+  --bg-secondary: #111827;
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --accent-primary: #6366f1;
+  --accent-secondary: #a855f7;
+  --glass-bg: rgba(17, 24, 39, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: var(--transition);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 8rem 0;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+}
+
+.btn {
+  padding: 0.8rem 2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: white;
+  box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.39);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.23);
+  filter: brightness(1.1);
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 4rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none !important;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+  
+  section {
+    padding: 5rem 0;
+  }
+  
+  h1 {
+    font-size: 3rem !important;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--accent-primary), var(--accent-secondary));
+  border-radius: 10px;
+}
+
+/* Inputs & Forms */
+label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* Glass Button Contrast Fix */
+.btn.glass {
+  color: var(--text-primary);
+}
+
+.btn.glass:hover {
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+[data-aos] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
