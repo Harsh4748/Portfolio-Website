@@ -36,17 +36,17 @@ const Skills = () => {
         { name: 'Data Modeling', level: 85 }
       ]
     },
-    {
-      title: 'DevOps & Tools',
-      icon: <Code2 size={28} />,
-      color: '#f59e0b',
-      skills: [
-        { name: 'Docker / Kubernetes', level: 70 },
-        { name: 'AWS / Cloud', level: 75 },
-        { name: 'Git / CI-CD', level: 88 },
-        { name: 'Unit Testing', level: 82 }
-      ]
-    }
+    // {
+    //   title: 'DevOps & Tools',
+    //   icon: <Code2 size={28} />,
+    //   color: '#f59e0b',
+    //   skills: [
+    //     { name: 'Docker / Kubernetes', level: 70 },
+    //     { name: 'AWS / Cloud', level: 75 },
+    //     { name: 'Git / CI-CD', level: 88 },
+    //     { name: 'Unit Testing', level: 82 }
+    //   ]
+    // }
   ];
 
   return (

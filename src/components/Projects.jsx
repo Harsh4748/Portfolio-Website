@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { ExternalLink, Code2, Info, ChevronRight, X } from 'lucide-react';
 
 const Projects = () => {
@@ -99,18 +100,18 @@ const Projects = () => {
       </div>
 
       {/* Case Study Modal - Fixed & Scrollable Content */}
-      {activeProject && (
+      {activeProject && createPortal(
         <div style={{ 
           position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.95)', zIndex: 9999, display: 'flex', 
-          alignItems: 'flex-start', justifyContent: 'center', padding: '4rem 1rem',
+          backgroundColor: 'rgba(0, 0, 0, 0.95)', zIndex: 9999, 
+          padding: '4rem 1rem',
           backdropFilter: 'blur(15px)', overflowY: 'auto'
         }} onClick={() => setActiveProject(null)}>
           <div className="glass" style={{ 
             maxWidth: '850px', width: '100%', padding: '3.5rem', position: 'relative',
             background: 'var(--bg-primary)', color: 'var(--text-primary)',
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
-            margin: 'auto', // Centering trick with flex-start and auto margins
+            margin: '0 auto',
             animation: 'fadeIn 0.4s ease-out'
           }} onClick={e => e.stopPropagation()}>
             <button onClick={() => setActiveProject(null)} style={{ 
@@ -163,7 +164,8 @@ const Projects = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
