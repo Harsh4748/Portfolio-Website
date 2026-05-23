@@ -15,38 +15,76 @@ const Projects = () => {
     return () => { document.body.style.overflow = 'auto'; };
   }, [activeProject]);
 
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const categories = ["All", "SaaS & Web Apps", "AI & Automation", "E-Commerce & Finance", "Utilities"];
+
   const projects = [
     {
-      title: "Visionary Analytics",
-      category: "SaaS Dashboard",
-      problem: "Complex data silos made it impossible for executives to get a clear picture of their business metrics in real-time.",
-      solution: "Built a robust data orchestration engine with Node.js and MongoDB, featuring a high-performance React dashboard with real-time WebSocket updates.",
-      tech: ["React", "Node.js", "Chart.js", "MongoDB"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+      title: "Wholesale Cold Drinks Distribution ERP",
+      category: "SaaS & Web Apps",
+      problem: "Beverage distributors struggle with manual stock tracking (carton vs. bottle conversions), complex calculations across multiple retail shops, and slow paper-based invoicing.",
+      solution: "Developed an enterprise billing & stock ERP that automates packaging conversions, offers SuperAdmin multi-shop consolidated reports, implements granular permission overrides (RBAC+), and automatically fires professional PDF receipts to customers via WhatsApp API.",
+      tech: ["React", "Node.js", "Express", "PostgreSQL", "Tailwind CSS", "JWT"],
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
       link: "#",
       github: "#"
     },
     {
-      title: "LuxeCommerce",
-      category: "E-Commerce Platform",
-      problem: "Traditional e-commerce platforms were too slow for high-end luxury brands needing immersive storytelling.",
-      solution: "Implemented a headless commerce architecture using Next.js for blazing fast performance and a custom-built animation engine for product reveals.",
-      tech: ["Next.js", "Stripe", "Framer Motion", "PostgreSQL"],
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800",
+      title: "JARVIS: Autonomous AI Assistant",
+      category: "AI & Automation",
+      problem: "Managing browser automation scripts locally on a laptop is inefficient and usually requires manually running scripts in terminal environments while at the desk.",
+      solution: "Engineered a Python AI assistant controlled remotely via a private Telegram Bot. Created dual-mode operation support (running Playwright automation locally for tasks like WhatsApp/YouTube, or mobile deep-linking) with automated failover logic across Gemini 2.0 and Llama 3.",
+      tech: ["Python", "Playwright", "Gemini API", "Telegram Bot API", "CustomTkinter"],
+      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
       link: "#",
       github: "#"
     },
     {
-      title: "Aura AI",
-      category: "Generative AI Tool",
-      problem: "Content creators needed a way to generate unique brand-consistent imagery without technical prompt engineering.",
-      solution: "Integrated Stable Diffusion with a custom-trained model to provide a 'one-click' brand-styling interface for marketing teams.",
-      tech: ["React", "Python", "FastAPI", "AWS"],
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+      title: "Agrawal Mobile Banking Info Utility",
+      category: "Utilities",
+      problem: "Local merchants need to quickly check and record customers' bank account details using only their mobile numbers, and print physical invoices/receipts instantly.",
+      solution: "Created a banking information lookup and receipt printing tool. Designed a high-speed search interface queryable by mobile or account number, simple account management logs, and a clean print utility that formats transactions for immediate physical thermal printer output.",
+      tech: ["React", "Node.js", "Express", "MongoDB", "Axios"],
+      image: "https://images.unsplash.com/photo-1563013544-824ae1d704d3?auto=format&fit=crop&q=80&w=800",
+      link: "#",
+      github: "#"
+    },
+    {
+      title: "LuxeThreads E-Commerce Store",
+      category: "E-Commerce & Finance",
+      problem: "Traditional clothes shopping sites lack sophisticated back-office features like role auditing, ledger transaction integrity, coupon logic, and built-in dispute resolution platforms.",
+      solution: "Built a fully-featured e-commerce clothing application equipped with custom secure user wallets, platform financial ledger tracking, Razorpay integration, administrative auditing logs, coupon systems, and an arbitration platform to manage buyer-seller conflicts.",
+      tech: ["React", "Node.js", "Express", "MongoDB", "Razorpay API", "Tailwind CSS", "JWT"],
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800",
+      link: "#",
+      github: "#"
+    },
+    {
+      title: "Multi-Tenant ERP Builder SaaS",
+      category: "SaaS & Web Apps",
+      problem: "Building custom software for varying business models is time-consuming and expensive, yet standard SaaS platforms are too rigid.",
+      solution: "Engineered a multi-tenant SaaS that empowers businesses to design custom forms, configure automated business processes, set role-based permissions, and handle subscriptions using an integrated billing dashboard powered by Razorpay.",
+      tech: ["React", "Node.js", "Express", "MongoDB", "Razorpay API", "Tailwind CSS"],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+      link: "#",
+      github: "#"
+    },
+    {
+      title: "QueueLess: Virtual Queue Platform",
+      category: "SaaS & Web Apps",
+      problem: "Physical lines cause customer frustration and lost revenue, and customers lack options to trade or exchange places dynamically.",
+      solution: "Designed a waiting list management application that eliminates lines via virtual queues, real-time position trackers, and Socket.io events. Solved concurrency issues using a strict position-based DB model that allows users to swap queue positions safely.",
+      tech: ["React", "Node.js", "Express", "MongoDB", "Socket.io", "GSAP", "Tailwind CSS"],
+      image: "https://images.unsplash.com/photo-1590086782957-93c06ef217b4?auto=format&fit=crop&q=80&w=800",
       link: "#",
       github: "#"
     }
   ];
+
+  const filteredProjects = selectedCategory === "All"
+    ? projects
+    : projects.filter(p => p.category === selectedCategory);
 
   return (
     <section id="projects" className="bg-secondary">
@@ -58,8 +96,38 @@ const Projects = () => {
           </p>
         </div>
 
+        {/* Categories Filtering Menu */}
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          flexWrap: 'wrap', 
+          gap: '1rem', 
+          marginBottom: '4rem' 
+        }}>
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className="btn glass"
+              style={{
+                padding: '0.6rem 1.5rem',
+                fontSize: '0.9rem',
+                border: selectedCategory === cat ? '2px solid var(--accent-primary)' : '1px solid var(--glass-border)',
+                background: selectedCategory === cat ? 'linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(124, 58, 237, 0.15))' : 'var(--glass-bg)',
+                color: selectedCategory === cat ? 'var(--text-primary)' : 'var(--text-secondary)',
+                fontWeight: selectedCategory === cat ? '700' : '500',
+                transform: selectedCategory === cat ? 'scale(1.05)' : 'none',
+                boxShadow: selectedCategory === cat ? '0 10px 20px -10px rgba(79, 70, 229, 0.4)' : 'none',
+                transition: 'var(--transition)'
+              }}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '3rem' }}>
-          {projects.map((project, idx) => (
+          {filteredProjects.map((project, idx) => (
             <div key={idx} className="glass" style={{ 
               overflow: 'hidden', transition: 'var(--transition)',
               padding: '1.25rem', display: 'flex', flexDirection: 'column'
