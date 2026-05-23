@@ -56,7 +56,7 @@ const Contact = () => {
                 <div className="glass" style={{ padding: '0.75rem', color: 'var(--accent-primary)' }}><MapPin size={20} /></div>
                 <div>
                   <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Location</p>
-                  <p style={{ fontWeight: 600 }}>Madhya Pradesh, India</p>
+                  <p style={{ fontWeight: 600 }}>Surat,Gujarat,India</p>
                 </div>
               </div>
             </div>
