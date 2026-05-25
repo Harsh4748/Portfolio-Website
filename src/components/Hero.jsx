@@ -47,7 +47,7 @@ const Hero = () => {
            padding: '1rem', border: '1px solid var(--glass-border)',
            boxShadow: 'var(--shadow)', transform: 'rotate(2deg)'
          }}>
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" 
+            <img src="src/assets/image.jpeg" 
                  alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '1.5rem' }} />
          </div>
       </div>
