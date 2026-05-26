@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Code2, Globe } from 'lucide-react';
+import profileImg from '../assets/image.jpeg';
 
 const Hero = () => {
   return (
@@ -47,7 +48,7 @@ const Hero = () => {
            padding: '1rem', border: '1px solid var(--glass-border)',
            boxShadow: 'var(--shadow)', transform: 'rotate(2deg)'
          }}>
-            <img src="src/assets/image.jpeg" 
+            <img src={profileImg} 
                  alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '1.5rem' }} />
          </div>
       </div>
