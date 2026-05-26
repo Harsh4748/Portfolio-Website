@@ -126,7 +126,7 @@ const Projects = () => {
           ))}
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '3rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem' }}>
           {filteredProjects.map((project, idx) => (
             <div key={idx} className="glass" style={{ 
               overflow: 'hidden', transition: 'var(--transition)',
@@ -175,13 +175,7 @@ const Projects = () => {
           padding: '4rem 1rem',
           backdropFilter: 'blur(15px)', overflowY: 'auto'
         }} onClick={() => setActiveProject(null)}>
-          <div className="glass" style={{ 
-            maxWidth: '850px', width: '100%', padding: '3.5rem', position: 'relative',
-            background: 'var(--bg-primary)', color: 'var(--text-primary)',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
-            margin: '0 auto',
-            animation: 'fadeIn 0.4s ease-out'
-          }} onClick={e => e.stopPropagation()}>
+          <div className="glass modal-card" onClick={e => e.stopPropagation()}>
             <button onClick={() => setActiveProject(null)} style={{ 
               position: 'absolute', top: '1.5rem', right: '1.5rem', background: 'none', border: 'none', 
               color: 'var(--text-secondary)', cursor: 'pointer', padding: '0.5rem', borderRadius: '50%',
@@ -199,7 +193,7 @@ const Projects = () => {
               <div style={{ height: '4px', width: '60px', background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))', borderRadius: '10px' }}></div>
             </div>
             
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', marginBottom: '3.5rem' }}>
+            <div className="modal-content-grid">
               <div className="animate-fade" style={{ animationDelay: '0.1s' }}>
                 <h4 style={{ fontSize: '1.1rem', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 700 }}>
                   <span style={{ color: 'var(--accent-primary)', background: 'var(--bg-secondary)', padding: '0.25rem 0.6rem', borderRadius: '0.5rem' }}>01</span> 
@@ -216,7 +210,7 @@ const Projects = () => {
               </div>
             </div>
             
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--glass-border)', paddingTop: '2.5rem' }}>
+            <div className="modal-footer">
               <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap' }}>
                 {activeProject.tech.map(t => (
                   <span key={t} style={{ fontWeight: 600, color: 'var(--accent-primary)', fontSize: '0.95rem' }}>#{t}</span>

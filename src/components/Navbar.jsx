@@ -64,11 +64,62 @@ const Navbar = ({ theme, toggleTheme }) => {
           </div>
         </div>
 
-        {/* Mobile Toggle Placeholder */}
-        <div className="mobile-toggle" style={{ display: 'none' }}>
-           <Menu size={24} />
-        </div>
+        {/* Mobile Toggle Button */}
+        <button 
+          onClick={() => setIsOpen(!isOpen)} 
+          className="mobile-toggle" 
+          style={{ 
+            background: 'none', 
+            border: 'none', 
+            color: 'var(--text-primary)', 
+            cursor: 'pointer',
+            display: 'none',
+            padding: '0.5rem'
+          }}
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isOpen && (
+        <div className="mobile-menu glass" style={{
+          position: 'absolute',
+          top: '100%',
+          left: '1.5rem',
+          right: '1.5rem',
+          padding: '2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1.5rem',
+          marginTop: '0.5rem',
+          boxShadow: 'var(--shadow)',
+          animation: 'fadeIn 0.3s ease-out forwards'
+        }}>
+          <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            {navLinks.map(link => (
+              <li key={link.name}>
+                <a href={link.href} onClick={() => setIsOpen(false)} style={{ 
+                  fontWeight: 600, 
+                  fontSize: '1.1rem',
+                  color: 'var(--text-primary)',
+                  display: 'block'
+                }}>
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--glass-border)', paddingTop: '1.25rem' }}>
+            <button onClick={toggleTheme} className="btn" style={{ padding: '0.5rem', background: 'none', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              {theme === 'light' ? <><Moon size={20} /> Dark Mode</> : <><Sun size={20} /> Light Mode</>}
+            </button>
+            <a href="#contact" onClick={() => setIsOpen(false)} className="btn btn-primary" style={{ padding: '0.6rem 1.25rem', fontSize: '0.85rem' }}>
+              Contact
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

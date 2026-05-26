@@ -3,21 +3,14 @@ import React from 'react';
 const About = () => {
   return (
     <section id="about" className="container">
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '6rem', alignItems: 'center' }}>
-        <div style={{ position: 'relative' }}>
-          <div className="glass" style={{ 
-            width: '100%', height: '500px', borderRadius: '3rem', overflow: 'hidden',
-            border: '2px solid var(--accent-primary)', padding: '0.75rem'
-          }}>
+      <div className="about-grid">
+        <div className="about-img-container">
+          <div className="glass about-img-card">
             <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800" 
                  alt="Coding" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '2.5rem' }} />
           </div>
           {/* Experience Badge */}
-          <div className="glass" style={{ 
-            position: 'absolute', bottom: '-2rem', right: '-2rem', padding: '2rem',
-            textAlign: 'center', background: 'var(--accent-primary)', color: 'white',
-            borderRadius: '2rem', boxShadow: 'var(--shadow)'
-          }}>
+          <div className="glass about-badge">
             <h4 style={{ fontSize: '2.5rem', fontWeight: 800 }}>3+</h4>
             <p style={{ fontSize: '0.9rem', fontWeight: 600 }}>Years of <br /> Excellence</p>
           </div>
@@ -34,7 +27,7 @@ const About = () => {
             My approach is always user-centric, ensuring that every interaction is meaningful.
           </p>
           
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+          <div className="about-features-grid">
             <div className="glass" style={{ padding: '1.5rem' }}>
               <h4 style={{ color: 'var(--accent-primary)', marginBottom: '0.5rem', fontSize: '1.25rem' }}>Creative Mind</h4>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Problem solver with an eye for detail and aesthetics.</p>
