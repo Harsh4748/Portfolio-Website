@@ -27,8 +27,8 @@ const Projects = () => {
       solution: "Developed an enterprise billing & stock ERP that automates packaging conversions, offers SuperAdmin multi-shop consolidated reports, implements granular permission overrides (RBAC+), and automatically fires professional PDF receipts to customers via WhatsApp API.",
       tech: ["React", "Node.js", "Express", "PostgreSQL", "Tailwind CSS", "JWT"],
       image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
-      link: "#",
-      github: "#"
+      link: "https://cold-drinks-distribution.vercel.app/",
+      github: "https://github.com/Harsh4748/Cold_Drinks_Distribution_ERP"
     },
     {
       title: "JARVIS: Autonomous AI Assistant",
