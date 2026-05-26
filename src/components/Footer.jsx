@@ -16,16 +16,17 @@ const Footer = () => {
           </div>
           
           <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <a href="#" className="glass" style={{ padding: '0.75rem' }}><Code2 size={20} /></a>
-            <a href="#" className="glass" style={{ padding: '0.75rem' }}><Globe size={20} /></a>
-            <a href="#" className="glass" style={{ padding: '0.75rem' }}><Send size={20} /></a>
+            <a href="https://github.com/Harsh4748" target="_blank" rel="noopener noreferrer" className="glass" style={{ padding: '0.75rem', display: 'inline-flex' }}><Code2 size={20} /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="glass" style={{ padding: '0.75rem', display: 'inline-flex' }}><Globe size={20} /></a>
+            <a href="mailto:agrawalharsh6269@gmail.com" className="glass" style={{ padding: '0.75rem', display: 'inline-flex' }}><Send size={20} /></a>
           </div>
         </div>
         
         <div style={{ 
           marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid var(--glass-border)', 
           textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.9rem',
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          flexWrap: 'wrap', gap: '1.5rem'
         }}>
           <p>© {new Date().getFullYear()} Harsh Agrawal. All rights reserved.</p>
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="btn glass" style={{ padding: '0.5rem' }}>

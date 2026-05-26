@@ -36,8 +36,8 @@ const Hero = () => {
             Explore Projects <ArrowRight size={20} />
           </a>
           <div style={{ display: 'flex', gap: '1rem' }}>
-            <a href="https://github.com" className="btn glass" style={{ padding: '0.8rem', borderRadius: '50%' }}><Code2 size={20} /></a>
-            <a href="https://linkedin.com" className="btn glass" style={{ padding: '0.8rem', borderRadius: '50%' }}><Globe size={20} /></a>
+            <a href="https://github.com/Harsh4748" target="_blank" rel="noopener noreferrer" className="btn glass" style={{ padding: '0.8rem', borderRadius: '50%', display: 'inline-flex' }}><Code2 size={20} /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn glass" style={{ padding: '0.8rem', borderRadius: '50%', display: 'inline-flex' }}><Globe size={20} /></a>
           </div>
         </div>
       </div>
